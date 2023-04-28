@@ -8,11 +8,11 @@ namespace MVC_InventoryWebApp.Models
 {
     public class Item
     {
-        public int ItemId { get; set; }
-        public String ItemName { get; set; }
-        public String ItemDescription { get; set; }
-        public int ItemQuantity { get; set; }
-
-       
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int Quantity { get; set; }
+        public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

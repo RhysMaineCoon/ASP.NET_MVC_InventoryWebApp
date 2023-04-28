@@ -7,8 +7,8 @@ namespace MVC_InventoryWebApp.Models
 {
     public class Category
     {
-        public String Name { get; set; }
-        public String Description { get; set; }
-
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
     }
 }
