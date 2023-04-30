@@ -136,7 +136,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304280407279_InitialCreate.cs" />
+    <Compile Include="Migrations\202304280407279_InitialCreate.Designer.cs">
+      <DependentUpon>202304280407279_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\InventoryDBContext.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\User.cs" />
@@ -151,6 +157,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\ComfyUI_00021_.png" />
     <Content Include="Content\TableDesign.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -202,7 +209,11 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202304280407279_InitialCreate.resx">
+      <DependentUpon>202304280407279_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

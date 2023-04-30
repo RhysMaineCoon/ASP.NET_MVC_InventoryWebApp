@@ -1,17 +1,31 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+@model MVC_InventoryWebApp.Models.ContactViewModel
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+
+
+<div class="jumbotron">
+
+    <h2>Have a question about this app?</h2>
+    <h3>Feel free to send a message!</h3>
+
+    @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Message)
+            @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+    }
+</div>
+

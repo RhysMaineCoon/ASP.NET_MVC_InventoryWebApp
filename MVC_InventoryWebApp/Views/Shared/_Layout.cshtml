@@ -7,8 +7,12 @@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/TableDesign.css")
     @Scripts.Render("~/bundles/modernizr")
+    
 </head>
+
 <body>
+    <header></header>
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -22,13 +26,21 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Inventory", "Index", "Items")</li>
+                    <li>@Html.ActionLink("Create Categories", "Index", "Categories")
+                    <li>@Html.ActionLink("Create Items", "Index", "Items")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
             </div>
         </div>
     </div>
+
+   
+
+
+
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />
