@@ -32,8 +32,14 @@ namespace MVC_InventoryWebApp.Controllers
         public ActionResult Contact(ContactViewModel model)
         {
             // Send the email here
-            return RedirectToAction("Index");
+            return RedirectToAction("Success");
         }
+
+        public ActionResult Success()
+        {
+            return View();
+        }
+
 
     }
 }
