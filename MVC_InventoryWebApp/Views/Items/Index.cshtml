@@ -9,13 +9,22 @@
     <h2>Index</h2>
 
     <p>
-        [Img of beat up old file cabnit with Incentive phrase to use new version]
+        [Img of beat up old file cabinet with Incentive phrase to use new version]
     </p>
 
     <p>
-        @Html.ActionLink("Create New Category", "~/Categories/Index")
+        @Html.ActionLink("Create New Category", "~/Views/Categories/Index.cshtml")
     </p>
 
+    <p>
+        @Html.ActionLink("Create New Category", Url.Action("Index", "Categories", new { area = "" }), new { target = "_blank" })
+    </p>
+
+    <a href="~/Views/Categories/Index.cshtml">
+        <p>
+            @Html.ActionLink("Create New Category", Url.Action("Index", "Categories", new { area = "" }), new { target = "_blank" })
+        </p>
+    </a>
 
     <h3>
         @Html.ActionLink("Create New Item", "Create")
