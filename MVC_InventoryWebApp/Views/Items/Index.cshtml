@@ -12,42 +12,28 @@
         [Img of beat up old file cabinet with Incentive phrase to use new version]
     </p>
 
-    <p>
-        @Html.ActionLink("Create New Category", "~/Views/Categories/Index.cshtml")
-    </p>
-
-    <p>
-        @Html.ActionLink("Create New Category", Url.Action("Index", "Categories", new { area = "" }), new { target = "_blank" })
-    </p>
-
-    <a href="~/Views/Categories/Index.cshtml">
-        <p>
-            @Html.ActionLink("Create New Category", Url.Action("Index", "Categories", new { area = "" }), new { target = "_blank" })
-        </p>
-    </a>
-
     <h3>
         @Html.ActionLink("Create New Item", "Create")
     </h3>
 
+    <p>Sort by Category:</p>
+
 </div>
-
-
 
 
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Category.Name)
+                @Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.CategorySortParam })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParam })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.ActionLink("Description", "Index", new { sortOrder = ViewBag.DescriptionSortParam})
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Quantity)
+                @Html.ActionLink("Quantity", "Index", new { sortOrder = ViewBag.QuantitySortParam })
             </th>
             <th></th>
         </tr>

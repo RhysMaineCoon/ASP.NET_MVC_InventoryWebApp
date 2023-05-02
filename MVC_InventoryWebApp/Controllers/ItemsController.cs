@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -15,9 +16,45 @@ namespace MVC_InventoryWebApp.Controllers
         private InventoryDbContext db = new InventoryDbContext();
 
         // GET: Items
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
+            ViewBag.CategorySortParam = String.IsNullOrEmpty(sortOrder) ? "category_desc" : "";
+            ViewBag.NameSortParam = sortOrder == "Name" ? "name_desc" : "Name";
+            ViewBag.DescriptionSortParam = sortOrder == "Description" ? "description_desc" : "Description";
+            ViewBag.QuantitySortParam = sortOrder == "Quantity" ? "quantity_desc" : "Quantity";
+
+            // 
             var items = db.Items.Include(i => i.Category);
+
+            switch (sortOrder)
+            {
+                case "category_desc":
+                    items = items.OrderByDescending(i => i.Category.Name);
+                    break;
+                case "Name":
+                    items = items.OrderBy(i => i.Name);
+                    break;
+                case "name_desc":
+                    items = items.OrderByDescending(i => i.Name);
+                    break;
+                case "Description":
+                    items = items.OrderBy(i => i.Description);
+                    break;
+                case "description_desc":
+                    items = items.OrderByDescending(i => i.Description);
+                    break;
+                case "Quantity":
+                    items = items.OrderBy(i => i.Quantity);
+                    break;
+                case "quantity_desc":
+                    items = items.OrderByDescending(i => i.Quantity);
+                    break;
+                default:
+                    items = items.OrderBy(i => i.Category.Name);
+                    break;
+            }
+
+            //
             return View(items.ToList());
         }
 
