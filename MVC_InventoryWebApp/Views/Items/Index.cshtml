@@ -16,7 +16,15 @@
         @Html.ActionLink("Create New Item", "Create")
     </h3>
 
-    <p>Sort by Category:</p>
+    <!--Search Box-->
+    @using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
 
 </div>
 

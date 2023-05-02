@@ -16,7 +16,7 @@ namespace MVC_InventoryWebApp.Controllers
         private InventoryDbContext db = new InventoryDbContext();
 
         // GET: Items
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.CategorySortParam = String.IsNullOrEmpty(sortOrder) ? "category_desc" : "";
             ViewBag.NameSortParam = sortOrder == "Name" ? "name_desc" : "Name";
@@ -26,6 +26,15 @@ namespace MVC_InventoryWebApp.Controllers
             // 
             var items = db.Items.Include(i => i.Category);
 
+            //Search String
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                items = items.Where(s => s.Name.Contains(searchString)
+                                       || s.Description.Contains(searchString));
+                                       //|| s.Quantity.Contains(searchString));
+            }
+
+            // Sorting switch statment
             switch (sortOrder)
             {
                 case "category_desc":
