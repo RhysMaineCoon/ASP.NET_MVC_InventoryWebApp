@@ -13,6 +13,8 @@ namespace MVC_InventoryWebApp.Models
     {
         public DbSet<Item> Items { get; set; }
         public DbSet<Category> Categories { get; set; }
+
+        public System.Data.Entity.DbSet<MVC_InventoryWebApp.Models.User> Users { get; set; }
     }
 
 }

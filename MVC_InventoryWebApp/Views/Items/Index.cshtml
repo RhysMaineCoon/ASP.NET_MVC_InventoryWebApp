@@ -1,73 +1,81 @@
-﻿@model IEnumerable<MVC_InventoryWebApp.Models.Item>
+﻿<!--One or the other, not both-->
+<!--model IEnumerable<MVC_InventoryWebApp.Models.Item>-->
+@model PagedList.IPagedList<MVC_InventoryWebApp.Models.Item>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Inventory Items";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="jumbotron">
-    <h2>Index</h2>
-
     <p>
         [Img of beat up old file cabinet with Incentive phrase to use new version]
     </p>
 
     <h3>
-        @Html.ActionLink("Create New Item", "Create")
+        @Html.ActionLink("Add New Item", "Create")
     </h3>
 
-    <!--Search Box-->
+    <!--Search Box & page controls-->
+    <!--("Index", "Item", FormMethod.Get)-->
     @using (Html.BeginForm())
-{
-    <p>
-        Find by name: @Html.TextBox("SearchString")
-        <input type="submit" value="Search" />
-    </p>
-}
+    {
+        <p>
+            Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" />
+        </p>
+    }
 
 
 </div>
 
 
-    <table class="table">
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.CategorySortParam, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParam, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Description", "Index", new { sortOrder = ViewBag.DescriptionSortParam, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Quantity", "Index", new { sortOrder = ViewBag.QuantitySortParam, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>
-                @Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.CategorySortParam })
-            </th>
-            <th>
-                @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParam })
-            </th>
-            <th>
-                @Html.ActionLink("Description", "Index", new { sortOrder = ViewBag.DescriptionSortParam})
-            </th>
-            <th>
-                @Html.ActionLink("Quantity", "Index", new { sortOrder = ViewBag.QuantitySortParam })
-            </th>
-            <th></th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
         </tr>
+    }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quantity)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
-        }
+</table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
-    </table>
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
 

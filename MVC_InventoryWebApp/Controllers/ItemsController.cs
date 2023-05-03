@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVC_InventoryWebApp.Models;
+using PagedList;
 
 namespace MVC_InventoryWebApp.Controllers
 {
@@ -16,12 +17,27 @@ namespace MVC_InventoryWebApp.Controllers
         private InventoryDbContext db = new InventoryDbContext();
 
         // GET: Items
-        public ActionResult Index(string sortOrder, string searchString)
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
+
             ViewBag.CategorySortParam = String.IsNullOrEmpty(sortOrder) ? "category_desc" : "";
             ViewBag.NameSortParam = sortOrder == "Name" ? "name_desc" : "Name";
             ViewBag.DescriptionSortParam = sortOrder == "Description" ? "description_desc" : "Description";
             ViewBag.QuantitySortParam = sortOrder == "Quantity" ? "quantity_desc" : "Quantity";
+
+            
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
 
             // 
             var items = db.Items.Include(i => i.Category);
@@ -34,7 +50,7 @@ namespace MVC_InventoryWebApp.Controllers
                                        //|| s.Quantity.Contains(searchString));
             }
 
-            // Sorting switch statment
+            // Sorting switch statment for table columns
             switch (sortOrder)
             {
                 case "category_desc":
@@ -58,13 +74,14 @@ namespace MVC_InventoryWebApp.Controllers
                 case "quantity_desc":
                     items = items.OrderByDescending(i => i.Quantity);
                     break;
-                default:
+                default: //ascending
                     items = items.OrderBy(i => i.Category.Name);
                     break;
             }
 
-            //
-            return View(items.ToList());
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(items.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Items/Details/5
