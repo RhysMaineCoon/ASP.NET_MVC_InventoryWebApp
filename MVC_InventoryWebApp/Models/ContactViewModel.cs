@@ -16,9 +16,12 @@ namespace MVC_InventoryWebApp.Models
         [StringLength(50, MinimumLength = 2)]
         public string Email { get; set; }
 
+        //public string Subject { get; internal set; }
+
         [Required]
         [StringLength(500, MinimumLength = 2)]
         public string Message { get; set; }
+       
     }
 
 }
