@@ -1,0 +1,114 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    color: #333;
+   background: #cccccc;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    line-height: 1.2;
+}
+
+/* Header styles */
+header {
+    padding: 40px;
+    text-align: center;
+    background-color: #666666;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+}
+
+h1 {
+    margin: 0;
+    list-style: none;
+}
+
+.no-decoration {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navigation bar styles */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: center; /* this centers the items horizontally */
+}
+
+
+nav li {
+    float: left;
+}
+
+    nav li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+        nav li a:hover {
+            background-color: #111;
+        }
+
+/* Footer styles */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+/* Body content styles */
+.body-content {
+    padding-top: 30px;
+    background-color: #e1e1e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 200px;
+    margin-left: 200px;
+    padding-right:250px;
+    padding-left:250px;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .table {
+        flex: 1;
+        margin: 0 10px;
+    }
+
+    p {
+        flex: 0 0 100%;
+    }
+}
+
+@media screen  and (max-width: 768px) {
+    .body-content{
+        padding: 0;
+        margin:0;
+    }
+}
+

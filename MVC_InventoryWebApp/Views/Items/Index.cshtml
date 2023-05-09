@@ -9,27 +9,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="jumbotron">
+<!--Search Box & page controls-->
+<!--("Index", "Item", FormMethod.Get)-->
+@using (Html.BeginForm())
+{
     <p>
-        [Img of beat up old file cabinet with Incentive phrase to use new version]
+        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
     </p>
-
-    <h3>
-        @Html.ActionLink("Add New Item", "Create")
-    </h3>
-
-    <!--Search Box & page controls-->
-    <!--("Index", "Item", FormMethod.Get)-->
-    @using (Html.BeginForm())
-    {
-        <p>
-            Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-            <input type="submit" value="Search" />
-        </p>
-    }
-
-
-</div>
+}
 
 
 <table class="table">
@@ -73,6 +61,12 @@
     }
 
 </table>
+
+
+<p>
+    @Html.ActionLink("Add New Item", "Create")
+</p>
+
 <br />
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 

@@ -1,22 +1,4 @@
-﻿html,
-body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    background: linear-gradient(45deg, #49a09d, #5f2c82);
-    font-family: sans-serif;
-    font-weight: 100;
-}
-
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
+﻿
 table {
     width: 800px;
     border-collapse: collapse;
@@ -28,7 +10,7 @@ th,
 td {
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    color: #000000;
 }
 
 th {
@@ -57,3 +39,4 @@ tbody td {
         background-color: rgba(255, 255, 255, 0.2);
         z-index: -1;
     }
+
