@@ -33,7 +33,7 @@
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>2</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -363,6 +363,10 @@
     <Compile Include="Migrations\202305031445155_UserModel.Designer.cs">
       <DependentUpon>202305031445155_UserModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305101453368_CategoryDescription.cs" />
+    <Compile Include="Migrations\202305101453368_CategoryDescription.Designer.cs">
+      <DependentUpon>202305101453368_CategoryDescription.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ContactViewModel.cs" />
@@ -484,6 +488,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305031445155_UserModel.resx">
       <DependentUpon>202305031445155_UserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305101453368_CategoryDescription.resx">
+      <DependentUpon>202305101453368_CategoryDescription.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

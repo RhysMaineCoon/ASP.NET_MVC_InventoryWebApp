@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVC_InventoryWebApp.Models;
+using PagedList;
 
 namespace MVC_InventoryWebApp.Controllers
 {
@@ -15,10 +16,54 @@ namespace MVC_InventoryWebApp.Controllers
         private InventoryDbContext db = new InventoryDbContext();
 
         // GET: Categories
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.Categories.ToList());
+            ViewBag.CurrentSort = sortOrder;
+
+            ViewBag.NameSortParam = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DescriptionSortParam = sortOrder == "Description" ? "description_desc" : "Description";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var categories = from c in db.Categories
+                             select c;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                categories = categories.Where(c => c.Name.Contains(searchString)
+                                                   || c.Description.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    categories = categories.OrderByDescending(c => c.Name);
+                    break;
+                case "Description":
+                    categories = categories.OrderBy(c => c.Description);
+                    break;
+                case "description_desc":
+                    categories = categories.OrderByDescending(c => c.Description);
+                    break;
+                default:
+                    categories = categories.OrderBy(c => c.Name);
+                    break;
+            }
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(categories.ToPagedList(pageNumber, pageSize));
         }
+
 
         // GET: Categories/Details/5
         public ActionResult Details(int? id)

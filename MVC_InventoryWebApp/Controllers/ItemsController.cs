@@ -46,8 +46,8 @@ namespace MVC_InventoryWebApp.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 items = items.Where(s => s.Name.Contains(searchString)
-                                       || s.Description.Contains(searchString));
-                                       //|| s.Quantity.Contains(searchString));
+                                       || s.Description.Contains(searchString)
+                                       || s.Category.Name.Contains(searchString));
             }
 
             // Sorting switch statment for table columns
