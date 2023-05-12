@@ -8,7 +8,6 @@
     <!-- Bootstrap CSS -->
     <!--Styles.Render("~/Content/css")-->
     <!--Styles.Render("~/Content/bootstrap.css")-->
-
     <!-- Custom CSS files -->
     @Styles.Render("~/Content/TableDesign.css")
     @Styles.Render("~/Content/Default.css")
@@ -18,41 +17,36 @@
 </head>
 
 <body>
+    <!-- Header section -->
+    <header>
+        <h1>
+            Welcome to your
+            @Html.ActionLink("Personal Inventory", "Index", "Items", null, new { @class = "no-decoration" })
+        </h1>
+    </header>
+
+    <!-- Navigation section -->
+    <nav>
+        <ul>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+            <li>@Html.ActionLink("Item Inventory", "Index", "Items")</li>
+            <li>@Html.ActionLink("Create Account", "Create", "Users")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        </ul>
+    </nav>
     <main class="conatiner">
-        <!-- Header section -->
-        <header>
-            <h1>
-                Welcome to your
-                @Html.ActionLink("Personal Inventory", "Index", "Items", null, new { @class = "no-decoration" })
-            </h1>
-        </header>
-
-        <!-- Navigation section -->
-        <nav>
-            <ul>
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
-                <li>@Html.ActionLink("Item Inventory", "Index", "Items")</li>
-                <li>@Html.ActionLink("Create Account", "Create", "Users")</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-            </ul>
-        </nav>
-
         <!-- Main content section -->
         <div class="body-content">
 
             @RenderBody()
 
         </div>
-            <!-- Footer section -->
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Personal Inventory</p>
-            </footer>
-        
-
-
+        <!-- Footer section -->
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Personal Inventory</p>
+        </footer>
 
         <!-- jQuery JS -->
         @Scripts.Render("~/bundles/jquery")

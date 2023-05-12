@@ -3,11 +3,29 @@
     padding: 0;
     color: #333;
     background: #cccccc;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1em;
-    line-height: 1.2;
-    min-height: 100%;
-   
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container.body-content {
+    flex-grow: 1;
+}
+
+
+/* Body content styles */
+.body-content {
+    padding-top: 30px;
+    background-color: #e1e1e1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-right: 200px;
+    margin-left: 200px;
+    padding-right: 250px;
+    padding-left: 250px;
+    border-radius: 30px;
 }
 
 /* Header styles */
@@ -48,7 +66,7 @@ nav li {
 }
 
     nav li a {
-        display: block;
+        display: flex;
         color: white;
         text-align: center;
         padding: 14px 16px;
@@ -61,11 +79,18 @@ nav li {
         }
 
 a:visited {
-    
     text-decoration: none;
 }
 
-
+main {
+    background-color: rgb(138 138 138 / 0.76);
+    border: solid #0f3a04;
+    display: block;
+    line-height: 1.6;
+    margin-left: 120px;
+    margin-right: 120px;
+    padding: 10px;
+}
 
 /* Footer styles */
 footer {
@@ -79,31 +104,15 @@ footer {
     padding: 10px;
 }
 
-
-
-/* Body content styles */
-.body-content {
-    padding-top: 30px;
-    background-color: #e1e1e1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-right: 200px;
-    margin-left: 200px;
-    padding-right: 250px;
-    padding-left: 250px;
-}
-
-main {
-    
-}
 p > a {
     font-size:medium;
     font-weight:900;
     text-decoration:none;
 }
 
+p {
+    font-size:large;
+}
 
 @media screen and (min-width: 768px) {
     .container {
@@ -137,8 +146,6 @@ label {
     font-weight: bold;
 }
 
-
-
 input[type=text],
 input[type=email],
 input[type=password],
@@ -155,7 +162,6 @@ input[type=number],
     transition: 0.5s;
     outline: none;
 }
-
 
 input[type=text]:focus,
 input[type=email]:focus,
@@ -180,9 +186,6 @@ textarea {
     font-size: 16px;
     resize: none;
 }
-
-
-
 
 button[type="submit"] {
     background-color: #4CAF50;

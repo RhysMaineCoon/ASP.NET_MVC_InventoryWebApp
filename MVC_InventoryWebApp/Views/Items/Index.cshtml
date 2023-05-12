@@ -15,10 +15,11 @@
 <!--("Index", "Item", FormMethod.Get)-->
 @using (Html.BeginForm())
 {
-    <p>
-        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-        <input type="submit" value="Search" />
-    </p>
+<p>
+    Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { id = "searchBar", placeholder = "Search..." })
+    <input type="submit" value="Search" />
+    <button id="clearButton" type="button">Clear</button>
+</p>
 }
 
 <table class="table">
@@ -73,3 +74,28 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
 @Html.PagedListPager(Model, page => Url.Action("Index",
     new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
 
+
+@section Scripts {
+    <script>
+    //This script focuses on the search bar when the page loads,
+    //allowing for dynamic searching, and clears the search bar and table
+    //when the clear button is clicked.
+
+    $(document).ready(function () {
+        // Set focus on the search bar when the page loads
+        $("#searchBar").focus();
+        $("#searchBar")[0].setSelectionRange($("#searchBar").val().length, $("#searchBar").val().length);
+
+        // Clear the search bar and table when the Clear button is clicked
+        $("#clearButton").click(function () {
+            $("#searchBar").val("").focus();
+            location.href = "@Url.Action("Index")";
+        });
+
+        // Submit the search form on typing in the search bar
+            $("#searchBar").on("input", function () {
+                $(this).closest("form").submit();
+            }); 
+    });
+    </script>
+}
