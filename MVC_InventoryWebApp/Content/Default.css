@@ -1,42 +1,40 @@
 ﻿body {
     margin: 0;
     padding: 0;
-    color: #333;
-    background: #cccccc;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    /*Image by  Rostislav Uzunov on www.pexels.com*/
+    background-image: url('Images/pexels-rostislav-uzunov-5011647.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Helvetica', sans-serif;
 }
-
-.container.body-content {
-    flex-grow: 1;
-}
-
 
 /* Body content styles */
 .body-content {
-    padding-top: 30px;
-    background-color: #e1e1e1;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-grow: 1;
-    margin-right: 200px;
-    margin-left: 200px;
-    padding-right: 250px;
-    padding-left: 250px;
+    padding: 30px 250px;
+    margin: 0px 150px;
+    background-color: rgba(189, 189, 189, 0.50);
     border-radius: 30px;
 }
+
+main {
+    border: none;
+    background: linear-gradient(to right, transparent, rgba(138, 138, 138, 0.95), transparent);
+    display: block;
+    line-height: 1.6;
+    margin: 0 10px;
+}
+
 
 /* Header styles */
 header {
     padding: 40px;
     text-align: center;
-    background-color: #666666;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
-    color: transparent;
+    color: rgb(247 247 247 / 0.85);
     text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
 }
 
@@ -51,24 +49,28 @@ h1 {
 }
 
 /* Navigation bar styles */
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    display: flex;
-    justify-content: center; /* this centers the items horizontally */
+nav {
+    margin: 0 10px;
+    background: linear-gradient(to right, transparent, rgba(51, 51, 51, 0.50), transparent);
 }
 
+    nav ul {
+        list-style-type: none;
+        background: linear-gradient(to right, transparent, rgba(51, 51, 51, 0.90), transparent);
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center; /* this centers the items horizontally */
+    }
+
 nav li {
-    float: left;
+    margin: 0;
 }
 
     nav li a {
-        display: flex;
+        display: block;
         color: white;
-        text-align: center;
         padding: 14px 16px;
         text-decoration: none;
         transition: background-color 0.3s ease;
@@ -80,16 +82,6 @@ nav li {
 
 a:visited {
     text-decoration: none;
-}
-
-main {
-    background-color: rgb(138 138 138 / 0.76);
-    border: solid #0f3a04;
-    display: block;
-    line-height: 1.6;
-    margin-left: 120px;
-    margin-right: 120px;
-    padding: 10px;
 }
 
 /* Footer styles */
@@ -119,10 +111,11 @@ p {
         flex-direction: row;
         flex-wrap: wrap;
     }
+   
 
     .table {
         flex: 1;
-        margin: 0 10px;
+        margin: 0;
     }
 
     p {
@@ -132,9 +125,15 @@ p {
 
 @media screen  and (max-width: 768px) {
     .body-content{
-        padding: 0;
+        padding: 10px;
         margin:0;
     }
+
+     main {
+        margin: 0;
+        padding: 0;
+     }
+
 }
 
 /* Form styles */

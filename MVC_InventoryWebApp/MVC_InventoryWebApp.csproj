@@ -399,6 +399,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Default.css" />
     <Content Include="Content\Images\ComfyUI_00021_.png" />
+    <Content Include="Content\Images\pexels-rostislav-uzunov-5011647.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\TableDesign.css" />
     <Content Include="Content\WebAppStyles.css" />
