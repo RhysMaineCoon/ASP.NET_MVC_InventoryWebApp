@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Personal Inventory</title>
 
-
+    <!-- Bootstrap CSS -->
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrap.css")
     <!-- Custom CSS files -->
     @Styles.Render("~/Content/TableDesign.css")
     @Styles.Render("~/Content/Default.css")
-    
-    <!-- Bootstrap CSS -->
-    @Styles.Render("~/Content/css")
-    <!--Styles.Render("~/Content/bootstrap") -->
+
 
     <!-- Modernizr JS -->
     @Scripts.Render("~/bundles/modernizr")
@@ -29,19 +28,16 @@
 
     <!-- Navigation section -->
     <nav>
-        <div class="container-fluid">
-            <ul>
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
-                <li>@Html.ActionLink("Item Inventory", "Index", "Items")</li>
-                <li>@Html.ActionLink("Create Account", "Create", "Users")</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-            </ul>
-        </div>
+        <ul>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+            <li>@Html.ActionLink("Item Inventory", "Index", "Items")</li>
+            <li>@Html.ActionLink("Create Account", "Create", "Users")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        </ul>
     </nav>
-
-    <main class="container-md">
+    <main class="conatiner">
         <!-- Main content section -->
         <div class="body-content">
 

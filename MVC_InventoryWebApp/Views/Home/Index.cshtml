@@ -2,41 +2,16 @@
 @{
     ViewBag.Title = "Home Page";
 }
+<h1>Welcome to your personal inventory app on the web!</h1>
+<p>
+    This application's sole purpose is to keep a personal inventory of anything you want to keep track of.
+</p>
+<p>
+    All you need to do is create categories and then create your items.
+</p>
+<p>
+    @Html.ActionLink(" Click here to get started!", "Index", "Categories", null, new { })
+</p>
 
-<!--Content Box-->
-<body>
 
-    <div class="container-fluid">
 
-        <h1>Welcome to your personal inventory app on the web!</h1>
-
-        <div class="text">
-            <div class="card">
-                <div class="content box1">
-                    <h2>Go to Categories</h2>
-                    <p>
-                        This application's sole purpose is to keep a personal inventory of anything you want to keep track of.
-                        All you need to do is create categories and then create your items.
-                    <p>
-                        @Html.ActionLink(" Click here to get started!", "Index", "Categories", null, new { })
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="content box2">
-                    <h2>Go to Items</h2>
-                    <p>
-                        This application's sole purpose is to keep a personal inventory of anything you want to keep track of.
-                        All you need to do is create categories and then create your items.
-                    <p>
-                        @Html.ActionLink(" Click here to get started!", "Index", "Categories", null, new { })
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="bg"></div>
-    </div>
-
-</body>
-
-<!--End Content Box-->
