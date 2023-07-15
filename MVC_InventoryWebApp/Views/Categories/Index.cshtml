@@ -12,11 +12,11 @@
 <!--Search Box-->
 @using (Html.BeginForm())
 {
-    <p>
-        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { id = "searchBar", placeholder = "Search..." })
-        <input type="submit" value="Search" />
-        <button id="clearButton" type="button">Clear</button>
-    </p>
+<p>
+    Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { id = "searchBar", placeholder = "Search..." })
+    <!--<input type="submit" value="Search" />-->
+    <button id="clearButton" type="button">Clear</button>
+</p>
 }
 
 <table class="table">

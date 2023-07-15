@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Personal Inventory</title>
 
-    <!-- Bootstrap CSS -->
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/bootstrap.css")
+    <!-- Bootstrap CSS
+    Styles.Render("~/Content/css")
+    Styles.Render("~/Content/bootstrap.css") -->
     <!-- Custom CSS files -->
     @Styles.Render("~/Content/TableDesign.css")
     @Styles.Render("~/Content/Default.css")
@@ -21,8 +21,7 @@
     <!-- Header section -->
     <header>
         <h1>
-            Welcome to your
-            @Html.ActionLink("Personal Inventory", "Index", "Items", null, new { @class = "no-decoration" })
+            @Html.ActionLink("Personal Inventory Manager", "Index", "Items", null, new { @class = "no-decoration" })
         </h1>
     </header>
 
