@@ -63,7 +63,8 @@ namespace MVC_InventoryWebApp.Controllers
             }
             */
 
-            return RedirectToAction("Success");
+            return View();
+                //RedirectToAction("Success");
         }
 
         public ActionResult Success()
