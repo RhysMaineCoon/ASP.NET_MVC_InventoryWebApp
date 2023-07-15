@@ -184,20 +184,6 @@ textarea {
     resize: none;
 }
 
-button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-    button[type="submit"]:hover {
-        background-color: #45a049;
-    }
-
 /* Center the form */
 div {
     display: flex;
@@ -226,4 +212,28 @@ dt {
 
 dd {
     margin-bottom: 10px;
+}
+
+
+#submitButton,
+#clearButton,
+#sendButton,
+#createButton{
+    padding: 12px 20px;
+    border: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+    #submitButton:hover,
+    #clearButton:hover,
+    #sendButton:hover,
+    #createButton{
+        background-color: #555;
+    }
+
+#clearButton {
+    margin-left: 10px;
 }
